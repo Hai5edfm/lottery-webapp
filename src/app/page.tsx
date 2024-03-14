@@ -11,9 +11,10 @@ export default function Home() {
       <NavBar />
 
       <section className="m-auto flex w-[80%] max-w-4xl flex-col items-center justify-center">
-        <div className="mb-4">
-          <Image alt="" src={lottery_icon} width={220} height={220} />
-        </div>
+        <Image alt="" src={lottery_icon} width={220} height={220} className="mb-4" />
+        <h1 className="mb-14 text-4xl font-bold text-[#2792DF]">
+          Search your lottery by name or ID
+        </h1>
         <Search />
       </section>
     </main>

@@ -3,9 +3,9 @@ import { FaSearch } from "react-icons/fa"
 
 export const Search: React.FC = () => {
   return (
-    <div className="relative flex w-1/3">
+    <div className="relative flex w-full">
       <input
-        className="h-16 w-full rounded-xl border-4 border-[#2792DF] bg-transparent px-4 text-white focus:outline-none"
+        className="h-16 w-full rounded-xl border-4 border-[#2792DF] bg-transparent px-4 text-[24px] text-white focus:outline-none"
         type="text"
         placeholder="Search"
       />
