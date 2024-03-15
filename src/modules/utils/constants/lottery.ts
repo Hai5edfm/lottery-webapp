@@ -51,4 +51,44 @@ export const LOTTERIES: LotteryCardProps[] = [
     },
     onClick: () => console.log("Lottery 5"),
   },
+  {
+    name: "Lottery 6",
+    description: "Description 6",
+    time: "00:10:00",
+    participants: {
+      current: 10,
+      max: 50,
+    },
+    onClick: () => console.log("Lottery 6"),
+  },
+  {
+    name: "Lottery 7",
+    description: "Description 7",
+    time: "12:02:10",
+    participants: {
+      current: 20,
+      max: 50,
+    },
+    onClick: () => console.log("Lottery 7"),
+  },
+  {
+    name: "Lottery 8",
+    description: "Description 8",
+    time: "02:53:00",
+    participants: {
+      current: 30,
+      max: 50,
+    },
+    onClick: () => console.log("Lottery 8"),
+  },
+  {
+    name: "Lottery 9",
+    description: "Description 9",
+    time: "01:42:00",
+    participants: {
+      current: 40,
+      max: 50,
+    },
+    onClick: () => console.log("Lottery 9"),
+  },
 ]

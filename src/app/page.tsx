@@ -5,6 +5,7 @@ import Image from "next/image"
 import fly_icon from "@/assets/images/fly.png"
 import guitar_icon from "@/assets/images/guitar.png"
 import lottery_icon from "@/assets/images/lottery_icon.png"
+import wink_icon from "@/assets/images/wink.png"
 import { NavBar } from "@/modules/ui/components/nav-bar"
 import { Search } from "@/modules/ui/components/search-bar/search"
 import { Tabs } from "@/modules/ui/components/tabs"
@@ -42,7 +43,7 @@ export default function Home() {
         src={fly_icon}
         width={200}
         height={200}
-        className="absolute right-0 top-0 hidden xl:block"
+        className="absolute right-0 top-16 hidden xl:block"
       />
       <Image
         alt=""
@@ -50,6 +51,13 @@ export default function Home() {
         width={200}
         height={200}
         className="absolute bottom-0 left-0 hidden xl:block"
+      />
+      <Image
+        alt=""
+        src={wink_icon}
+        width={240}
+        height={240}
+        className="absolute -bottom-[50%] right-0 hidden xl:block"
       />
     </main>
   )
