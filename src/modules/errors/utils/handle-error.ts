@@ -21,6 +21,16 @@ export default function handleError(error: any, callback: (errMsg: string) => vo
     }
   }
 
+  // handle error when cannot fetch or reach service
+  if (typeof error === "object" && "error" in error) {
+    const { error: _error } = error
+    if (typeof _error === "object") return callback(JSON.stringify(_error))
+    if (typeof _error === "string") return callback(_error)
+    if (Array.isArray(_error) && _error.length > 0) {
+      return callback(_error.toString())
+    }
+  }
+
   // error not handled
   return "Ups!, algo salió mal"
 }
