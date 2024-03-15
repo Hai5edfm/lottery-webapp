@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 
 import { apiSlice } from "@/modules/redux/slices/api-slice"
+import modalReducer from "@/modules/ui/modal/redux/modal-slice"
 
 const reducers = combineReducers({
+  modal: modalReducer,
   [apiSlice.reducerPath]: apiSlice.reducer,
 })
 

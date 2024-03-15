@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 
 import StoreProvider from "@/modules/redux/store-provider"
+import { ModalProvider } from "@/modules/ui/modal/providers/modal-provider"
 
 import "./globals.css"
 
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+          <ModalProvider />
+          {children}
+        </StoreProvider>
       </body>
     </html>
   )
