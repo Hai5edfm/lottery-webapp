@@ -1,4 +1,5 @@
 "use client"
+import LoginFormSkeleton from "@/modules/auth/components/login-form-skeleton"
 import Button from "@/modules/ui/components/button"
 import MakiArrowIcon from "@/modules/ui/components/icons/maki-arrow-icon"
 import Input from "@/modules/ui/components/input/input"
@@ -12,16 +13,21 @@ export default function LoginForm() {
     register,
     formState: { errors },
     handleSubmit,
+    isLoginError,
+    isLoginLoading,
+    errorMessage,
   } = useLoginForm()
+
+  if (isLoginLoading) return <LoginFormSkeleton />
 
   return (
     <form className="flex flex-col gap-8 text-[#2792DF]" onSubmit={handleSubmit}>
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="font-semibold">
-          Email
+          Usuario
         </label>
-        <Input type="email" id="email" name="email" register={register} />
-        <p className="text-[#EF5656]">{errors.email?.message}</p>
+        <Input type="text" id="user" name="user" register={register} />
+        <p className="text-[#EF5656]">{errors.user?.message}</p>
       </div>
 
       <div className="flex flex-col gap-2">
@@ -35,6 +41,7 @@ export default function LoginForm() {
       <Button className="flex items-center justify-center gap-2">
         Sign in <MakiArrowIcon className="aspect-square w-5" />
       </Button>
+      {isLoginError && <span className="text-center text-[#EF5656]">{errorMessage}</span>}
     </form>
   )
 }

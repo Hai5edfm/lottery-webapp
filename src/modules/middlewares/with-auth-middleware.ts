@@ -13,14 +13,17 @@ export const withAuth: MiddlewareFactory = (next) => {
     if (!isProtectedPath) return next(request, event)
 
     // VALIDATE AUTH COOKIE FORMAT
+    const authCookie = request.cookies.get("auth")
     const cookiesString = request.headers.get("Cookie") || ""
-    if (!cookiesString.includes("auth")) {
+
+    if (!authCookie) {
       return NextResponse.redirect(new URL(APP_LOGIN_PATH, request.url))
     }
 
     // VALIDATE AUTH COOKIE WITH SERVER
     try {
       const headers = new Headers()
+
       headers.append("Cookie", cookiesString)
 
       const response = await fetch(`${API_URL}${API_VALIDATE_AUTH_PATH}`, {
