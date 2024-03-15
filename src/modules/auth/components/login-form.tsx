@@ -1,9 +1,9 @@
 "use client"
 import LoginFormSkeleton from "@/modules/auth/components/login-form-skeleton"
-import Button from "@/modules/ui/components/button"
-import MakiArrowIcon from "@/modules/ui/components/icons/maki-arrow-icon"
-import Input from "@/modules/ui/components/input/input"
-import PasswordInput from "@/modules/ui/components/input/password-input"
+import Button from "@/modules/ui/button"
+import MakiArrowIcon from "@/modules/ui/icons/maki-arrow-icon"
+import Input from "@/modules/ui/input/input"
+import PasswordInput from "@/modules/ui/input/password-input"
 
 import useLoginForm from "@/modules/auth/hooks/useLoginForm"
 

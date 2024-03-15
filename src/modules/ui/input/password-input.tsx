@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 
-import MdiNoShowIcon from "@/modules/ui/components/icons/mdi-no-show-icon"
-import MdiShowIcon from "@/modules/ui/components/icons/mdi-show-icon"
+import MdiNoShowIcon from "@/modules/ui/icons/mdi-no-show-icon"
+import MdiShowIcon from "@/modules/ui/icons/mdi-show-icon"
 import { cn } from "@/modules/utils/cn"
 
 type PasswordInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> & {
