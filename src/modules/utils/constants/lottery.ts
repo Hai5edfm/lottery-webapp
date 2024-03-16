@@ -4,7 +4,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 1",
     description: "Description 1",
-    time: "00:10:00",
+    time: 300,
     participants: {
       current: 10,
       max: 50,
@@ -14,7 +14,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 2",
     description: "Description 2",
-    time: "12:02:10",
+    time: 500,
     participants: {
       current: 20,
       max: 50,
@@ -24,7 +24,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 3",
     description: "Description 3",
-    time: "02:53:00",
+    time: 2000,
     participants: {
       current: 30,
       max: 50,
@@ -34,7 +34,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 4",
     description: "Description 4",
-    time: "01:42:00",
+    time: 7200,
     participants: {
       current: 40,
       max: 50,
@@ -44,7 +44,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 5",
     description: "Description 5",
-    time: "01:06:57",
+    time: 14400,
     participants: {
       current: 50,
       max: 50,
@@ -54,7 +54,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 6",
     description: "Description 6",
-    time: "00:10:00",
+    time: 18000,
     participants: {
       current: 10,
       max: 50,
@@ -64,7 +64,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 7",
     description: "Description 7",
-    time: "12:02:10",
+    time: 19000,
     participants: {
       current: 20,
       max: 50,
@@ -74,7 +74,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 8",
     description: "Description 8",
-    time: "02:53:00",
+    time: 700,
     participants: {
       current: 30,
       max: 50,
@@ -84,7 +84,7 @@ export const LOTTERIES: LotteryCardProps[] = [
   {
     name: "Lottery 9",
     description: "Description 9",
-    time: "01:42:00",
+    time: 11000,
     participants: {
       current: 40,
       max: 50,

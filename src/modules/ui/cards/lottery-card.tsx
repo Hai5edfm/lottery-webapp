@@ -3,6 +3,8 @@ import { FaClock, FaUsers } from "react-icons/fa"
 
 import { type LotteryCardProps } from "@/modules/interfaces"
 
+import useCountDown from "@/modules/utils/hooks/use-count-down"
+
 interface Props {
   lotteryCard: LotteryCardProps
 }
@@ -16,10 +18,7 @@ export const LotteryCard: FC<Props> = ({ lotteryCard }) => {
         <div className="flex h-full w-full flex-col justify-between px-4 py-3 font-semibold">
           <h2 className="text-left text-sm">{name}</h2>
           <div className="mt-4 flex justify-between">
-            <p className="flex items-center gap-2">
-              <FaClock size={32} color="#29A5FF" />
-              {time}
-            </p>
+            <Counter time={time} />
             <p className="flex items-center gap-2">
               <FaUsers size={32} color="#EF5656" />
               <span>
@@ -30,5 +29,16 @@ export const LotteryCard: FC<Props> = ({ lotteryCard }) => {
         </div>
       </button>
     </article>
+  )
+}
+
+const Counter = ({ time }: { time: number }) => {
+  const counter = useCountDown(time)
+
+  return (
+    <p className="flex items-center gap-2">
+      <FaClock size={32} color="#29A5FF" />
+      {counter}
+    </p>
   )
 }

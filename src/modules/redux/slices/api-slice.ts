@@ -7,4 +7,5 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: getBaseQuery(API_URL),
   endpoints: () => ({}),
+  tagTypes: ["lotteryList"],
 })

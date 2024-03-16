@@ -6,13 +6,11 @@ import fly_icon from "@/assets/images/fly.png"
 import guitar_icon from "@/assets/images/guitar.png"
 import lottery_icon from "@/assets/images/lottery_icon.png"
 import wink_icon from "@/assets/images/wink.png"
+import LotteryList from "@/modules/admin/lottery/components/lottery-list"
 import { NavBar } from "@/modules/ui/nav-bar"
 import { Search } from "@/modules/ui/search-bar/search"
 import { Tabs } from "@/modules/ui/tabs"
 import { TABS } from "@/modules/utils/constants"
-import { LOTTERIES } from "@/modules/utils/constants/lottery"
-
-import { LotteryCardsList } from "../modules/ui/cards/lottery-cards-list"
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("All")
@@ -33,7 +31,7 @@ export default function Home() {
             <Tabs tabsArray={TABS} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
           </div>
           <div className="my-10 grid grid-cols-1 gap-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
-            <LotteryCardsList lotteries={LOTTERIES} />
+            <LotteryList />
           </div>
         </div>
       </section>
