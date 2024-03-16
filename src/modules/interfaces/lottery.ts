@@ -1,7 +1,7 @@
 export interface LotteryCardProps {
   name: string
   description: string
-  time: string
+  time: number
   participants: {
     current: number
     max: number
