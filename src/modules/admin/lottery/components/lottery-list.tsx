@@ -22,7 +22,7 @@ export default function LotteryList() {
         <div className="relative aspect-[180/161] w-[min(180px,100%)]">
           <Image alt="" src={not_found_icon} fill sizes="(max-width: 768px) 100vw" />
         </div>
-        <span className="text-sm font-semibold">No loter added yet</span>
+        <span className="text-sm font-semibold">No loterries added yet</span>
       </div>
     )
 
