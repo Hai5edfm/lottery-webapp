@@ -6,7 +6,9 @@ import { IoAddOutline } from "react-icons/io5"
 
 import fly_icon from "@/assets/images/fly.png"
 import guitar_icon from "@/assets/images/guitar.png"
+import { useAppDispatch } from "@/modules/redux/redux-hooks"
 import { LotteryCardsList } from "@/modules/ui/cards/lottery-cards-list"
+import { openModal } from "@/modules/ui/modal/redux/modal-slice"
 import { NavBar } from "@/modules/ui/nav-bar"
 import { Search } from "@/modules/ui/search-bar/search"
 import { Tabs } from "@/modules/ui/tabs"
@@ -15,6 +17,8 @@ import { LOTTERIES } from "@/modules/utils/constants/lottery"
 
 const LotteriesPage: NextPage = () => {
   const [selectedTab, setSelectedTab] = useState("All")
+
+  const dispatch = useAppDispatch()
 
   return (
     <main className="min-h-screen bg-[#272961]">
@@ -28,6 +32,7 @@ const LotteriesPage: NextPage = () => {
             </div>
             <button
               type="button"
+              onClick={() => dispatch(openModal({ type: "new-lottery" }))}
               className="flex w-4/12 items-center rounded-lg bg-[#EF5656] px-4 py-2 font-semibold hover:bg-[#e25959]"
             >
               Add new lottery
