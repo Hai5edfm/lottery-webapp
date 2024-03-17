@@ -6,3 +6,4 @@ export const API_LOGIN_PATH = "/auth/login"
 
 // LOTTERIES
 export const API_GET_LOTTERIES_PATH = "/lottery"
+export const API_CREATE_LOTTERY_PATH = "/lottery"
