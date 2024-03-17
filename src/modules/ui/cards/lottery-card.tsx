@@ -22,7 +22,8 @@ export const LotteryCard: FC<Props> = ({ lotteryCard }) => {
             <p className="flex items-center gap-2">
               <FaUsers size={32} color="#EF5656" />
               <span>
-                {participants.current}/{participants.max}
+                {participants.current}
+                {participants?.max ? `/${participants.max}` : null}
               </span>
             </p>
           </div>

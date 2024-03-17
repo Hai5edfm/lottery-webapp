@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 
 import { loginSchema, type LoginSchemaType } from "@/modules/auth/schemas/login-schema"
-import { APP_ADMIN_PATH } from "@/modules/config/app.routes"
+import { APP_ADMIN_LOTTERIES_PATH } from "@/modules/config/app.routes"
 import handleError from "@/modules/errors/utils/handle-error"
 import { zodResolver } from "@hookform/resolvers/zod"
 
@@ -26,7 +26,7 @@ export default function useLoginForm() {
   const onSubmit = async (credentials: LoginSchemaType) => {
     try {
       const { authenticated } = await loginService(credentials).unwrap()
-      if (authenticated === true) router.push(APP_ADMIN_PATH)
+      if (authenticated === true) router.push(APP_ADMIN_LOTTERIES_PATH)
       // TODO: Handle if authenticated is false
     } catch (error: any) {
       // TODO: Handle error

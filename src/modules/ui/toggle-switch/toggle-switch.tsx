@@ -5,6 +5,7 @@ import { cn } from "@/modules/utils/cn"
 
 const ToggleSwitch = ({ label, ...props }: SwitchProps<"button"> & { label?: string }) => {
   const [enabled, setEnabled] = useState(props.checked ?? false)
+  const disabled = props.disabled ?? false
 
   // HANDLERS
   const handleChange = (checked: boolean) => {
@@ -26,6 +27,7 @@ const ToggleSwitch = ({ label, ...props }: SwitchProps<"button"> & { label?: str
             "bg-[#83c3f1]": enabled,
           }
         )}
+        disabled={disabled}
       >
         <span
           aria-hidden="true"
