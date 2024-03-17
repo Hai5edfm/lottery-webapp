@@ -30,3 +30,37 @@ export interface Prize {
   createdAt: string
   updatedAt: string
 }
+
+export interface CreateLotteryDTO {
+  lottery_name: string
+  description: string
+  min_participants: number
+  public_access: boolean
+  secret_code: string
+  number_of_winners: number
+  participants: any[]
+  prizes: PrizeDTO[]
+}
+
+export interface PrizeDTO {
+  position: number
+  prize: string
+}
+
+export interface CreateLotteryResponse {
+  id: string
+  finished: boolean
+  lottery_name: string
+  description: string
+  min_participants: number
+  public_access: boolean
+  secret_code: string
+  number_of_winners: number
+  prizes: Prize[]
+  updatedAt: string
+  createdAt: string
+  slug: string
+  max_participants: any
+}
+
+// DOMAIN
