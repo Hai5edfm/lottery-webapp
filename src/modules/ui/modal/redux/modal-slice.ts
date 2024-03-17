@@ -35,7 +35,6 @@ export const modalSlice = createSlice({
     },
     closeModal(state) {
       state.type = null
-      state.data = null
       state.isOpen = false
     },
   },
