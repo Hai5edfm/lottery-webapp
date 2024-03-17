@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lottery webapp
 
-## Getting Started
+LotteryWebApp is a user-friendly web application designed to facilitate the creation and management of lotteries effortlessly. Whether you're planning a fundraiser, organizing an event, or simply want to add some excitement to your community, LotteryWebApp has got you covered.
 
-First, run the development server:
+![Capture d’écran 2024-03-17 à 01 32 38](https://github.com/Hai5edfm/lottery-webapp/assets/79668074/27bd0a1e-c63c-474d-a9f5-93d0c1f22594)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img src="https://github.com/Hai5edfm/lottery-webapp/assets/79668074/39a49960-8d09-4e45-8009-a91eb1190ef9" width="450" align="right" />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Create Lotteries**: Easily create custom lotteries tailored to your needs. Define parameters such as total number of tickets, and the prize structure.
+- **Real-time Updates**: Stay informed with real-time updates on remaining tickets and progress of the lottery.
+- **Random Number Generation**: Ensure fairness and transparency with built-in random number generation for selecting winners.
+- **Responsive Design**: Enjoy a seamless experience across devices with our responsive design, optimized for desktops, tablets, and smartphones.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+### Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone this repository to your local machine
+  ```bash
+  https://github.com/Hai5edfm/lottery-webapp.git
+  ```
+2. Navigate to the project directory
+  ```bash
+  cd lottery-webapp
+  ```
+3. Install dependencies
+  ```bash
+  npm install
+  ```
+4. Configure environment variables
+  ```bash
+  cp .env.template .env
+  ```
+  - Update the '*.env*' file with your environment-specific variables
+5. Start the web application
+  ```bash
+  npm run dev
+  ```
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🚀 Deployed in  <a name="deployed"></a>
+[Lottery webapp](https://lottery-webapp-seven.vercel.app/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## ⭐Acknowledgements <a name="acknowledgements"></a>
 
-## Deploy on Vercel
+- ⭐ [Andrei](https://github.com/andreibratila)
+- ⭐ [Kevin](https://github.com/kevin-dev71)
+- ⭐ [Guillermo](https://github.com/Hai5edfm)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
