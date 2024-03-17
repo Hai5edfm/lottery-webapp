@@ -7,9 +7,9 @@ import ListSkeleton from "@/modules/ui/skeleton/list-skeleton"
 import useLotteries from "@/modules/admin/lottery/hooks/useLotteries"
 
 export default function LotteryList() {
-  const { lotteriesCardProps, isError, isFetching } = useLotteries()
+  const { lotteries, isError, isFetching } = useLotteries()
 
-  const isEmpty = lotteriesCardProps.length <= 0
+  const isEmpty = lotteries.length <= 0
 
   if (isFetching) return <ListSkeleton />
   // TODO handle error
@@ -26,5 +26,5 @@ export default function LotteryList() {
       </div>
     )
 
-  return <LotteryCardsList lotteries={lotteriesCardProps} />
+  return <LotteryCardsList lotteries={lotteries} />
 }

@@ -13,12 +13,14 @@ import { NavBar } from "@/modules/ui/nav-bar"
 import { Search } from "@/modules/ui/search-bar/search"
 import { Tabs } from "@/modules/ui/tabs"
 import { ADMIN_TABS } from "@/modules/utils/constants"
-import { LOTTERIES } from "@/modules/utils/constants/lottery"
+
+import useLotteries from "@/modules/admin/lottery/hooks/useLotteries"
 
 const LotteriesPage: NextPage = () => {
   const [selectedTab, setSelectedTab] = useState("All")
-
   const dispatch = useAppDispatch()
+
+  const { lotteries } = useLotteries()
 
   return (
     <main className="min-h-screen bg-[#272961]">
@@ -48,7 +50,7 @@ const LotteriesPage: NextPage = () => {
             />
           </div>
           <div className="my-10 grid grid-cols-1 gap-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
-            <LotteryCardsList lotteries={LOTTERIES} />
+            <LotteryCardsList lotteries={lotteries} />
           </div>
         </div>
       </section>

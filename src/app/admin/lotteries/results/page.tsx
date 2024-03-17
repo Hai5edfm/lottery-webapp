@@ -6,7 +6,7 @@ import { MdCelebration } from "react-icons/md"
 import lottery_icon from "@/assets/images/lottery_icon.png"
 import LotteryResultsCard from "@/modules/admin/lottery/components/lottery-results"
 import { WinnersList } from "@/modules/admin/lottery/components/winners-list"
-import { type LotteryCardProps } from "@/modules/interfaces"
+import { type Lottery } from "@/modules/admin/lottery/interfaces"
 import { NavBar } from "@/modules/ui/nav-bar"
 
 const LotteryResults: NextPage = () => {
@@ -15,7 +15,7 @@ const LotteryResults: NextPage = () => {
       <NavBar />
       <section className="justify-center gap-28 px-3 sm:px-12 md:px-20 lg:flex xl:px-40">
         <div className="mb-10 lg:w-1/2 lg:max-w-xl">
-          <LotteryResultsCard lotteryCard={{} as LotteryCardProps} />
+          <LotteryResultsCard lotteryCard={{} as Lottery} />
         </div>
         <div className="mb-10 lg:w-1/2 lg:max-w-xl">
           <div className="flex flex-col items-center">

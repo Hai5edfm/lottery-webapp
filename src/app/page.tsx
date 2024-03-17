@@ -16,8 +16,8 @@ import useLotteries from "@/modules/admin/lottery/hooks/useLotteries"
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("All")
-  const { lotteriesCardProps } = useLotteries()
-  const isEmpty = lotteriesCardProps.length <= 0
+  const { lotteries } = useLotteries()
+  const isEmpty = lotteries.length <= 0
 
   return (
     <main className="min-h-screen bg-[#272961]">

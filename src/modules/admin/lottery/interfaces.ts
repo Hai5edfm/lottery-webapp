@@ -64,3 +64,10 @@ export interface CreateLotteryResponse {
 }
 
 // DOMAIN
+export interface Lottery extends LotteryResponse {
+  time: number
+  participants: {
+    current: number
+    max: number
+  }
+}

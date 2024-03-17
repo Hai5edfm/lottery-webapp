@@ -1,18 +1,18 @@
 import type React from "react"
 
-import { type LotteryCardProps } from "@/modules/interfaces"
+import { type Lottery } from "@/modules/admin/lottery/interfaces"
 
 import { LotteryCard } from "./lottery-card"
 
 interface Props {
-  lotteries: LotteryCardProps[]
+  lotteries: Lottery[]
 }
 
 export const LotteryCardsList: React.FC<Props> = ({ lotteries }) => {
   return (
     <>
-      {lotteries.map((lotteryCard) => (
-        <LotteryCard key={lotteryCard.name} lotteryCard={lotteryCard} />
+      {lotteries.map((lottery) => (
+        <LotteryCard key={lottery.id} lottery={lottery} />
       ))}
     </>
   )

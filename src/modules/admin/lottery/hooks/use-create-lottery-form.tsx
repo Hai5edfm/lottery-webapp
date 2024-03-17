@@ -11,7 +11,7 @@ import { useAppDispatch } from "@/modules/redux/redux-hooks"
 import { closeModal } from "@/modules/ui/modal/redux/modal-slice"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import { useCreateLotteryMutation } from "@/modules/admin/lottery/services/lottery"
+import { useCreateLotteryMutation } from "@/modules/admin/lottery/services/rtkq/lottery"
 
 export default function useCreateLotteryForm() {
   // STORE DISPATCHER

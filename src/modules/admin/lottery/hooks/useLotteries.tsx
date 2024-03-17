@@ -1,35 +1,31 @@
-import { type LotteryCardProps } from "@/modules/interfaces"
+import { type Lottery } from "@/modules/admin/lottery/interfaces"
 import { calculateSecondsFromTodayToDate } from "@/modules/utils/calculate-time-remaining"
 
-import { useGetLotteriesQuery } from "@/modules/admin/lottery/services/lottery"
+import { useGetLotteriesQuery } from "@/modules/admin/lottery/services/rtkq/lottery"
 
 export default function useLotteries() {
   // SERVICES
   const { data, isFetching, isError } = useGetLotteriesQuery()
 
   // ADAPT DATA for list loterries cards props, can refactor
-  const lotteriesCardProps: LotteryCardProps[] =
+  const lotteries: Lottery[] =
     data?.data.map((lottery) => {
       // calculate time remaining
-      const timeRemaining = calculateSecondsFromTodayToDate(lottery.createdAt)
+      // TODO IMPLEMENT with server end_date value instead createdAt
+      const _timeRemaining = calculateSecondsFromTodayToDate(lottery.createdAt)
 
       return {
-        name: lottery.lottery_name,
-        description: lottery.description,
-        time: timeRemaining,
+        ...lottery,
+        time: Math.floor(Math.random() * (7000 - 300 + 1)) + 300,
         participants: {
           current: lottery.min_participants,
           max: lottery.max_participants,
         },
-        onClick: () => {
-          console.log("TODO")
-        },
-      } as LotteryCardProps
+      }
     }) ?? []
 
   return {
-    lotteries: data,
-    lotteriesCardProps,
+    lotteries,
     isError,
     isFetching,
   }

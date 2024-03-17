@@ -1,13 +1,13 @@
 import { type FC } from "react"
 import { FaClock } from "react-icons/fa"
 
-import { type LotteryCardProps } from "@/modules/interfaces"
+import { type Lottery } from "@/modules/admin/lottery/interfaces"
 import ToggleSwitch from "@/modules/ui/toggle-switch/toggle-switch"
 
 import { PrizesListResults } from "./prizes-list-results"
 
 interface Props {
-  lotteryCard: LotteryCardProps
+  lotteryCard: Lottery
 }
 
 const LotteryResultsCard: FC<Props> = ({ lotteryCard }) => {
@@ -23,7 +23,7 @@ const LotteryResultsCard: FC<Props> = ({ lotteryCard }) => {
       <div>
         <div className="mt-5 grid grid-cols-10">
           <p>Lottery name:</p>
-          <p className="col-span-6 col-end-10 font-semibold">{lotteryCard.name}</p>
+          <p className="col-span-6 col-end-10 font-semibold">{lotteryCard.lottery_name}</p>
         </div>
         <div className="mt-5 grid grid-cols-10">
           <p>Status:</p>
