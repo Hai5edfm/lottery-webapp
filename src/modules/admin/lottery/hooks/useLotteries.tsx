@@ -11,11 +11,12 @@ export default function useLotteries() {
   const lotteries: Lottery[] =
     data?.data.map((lottery) => {
       // calculate time remaining
-      const timeRemaining = calculateSecondsFromTodayToDate(lottery.createdAt)
+      // TODO IMPLEMENT with server end_date value instead createdAt
+      const _timeRemaining = calculateSecondsFromTodayToDate(lottery.createdAt)
 
       return {
         ...lottery,
-        time: timeRemaining,
+        time: Math.floor(Math.random() * (7000 - 300 + 1)) + 300,
         participants: {
           current: lottery.min_participants,
           max: lottery.max_participants,

@@ -1,9 +1,6 @@
 export default function ListSkeleton() {
   return (
-    <div
-      role="status"
-      className="w-full animate-pulse space-y-4 divide-y divide-gray-200 rounded border border-gray-200 p-4 shadow md:p-6 dark:divide-gray-700 dark:border-gray-700"
-    >
+    <output className="w-full animate-pulse space-y-4 divide-y divide-gray-200 rounded border border-gray-200 p-4 shadow md:p-6 dark:divide-gray-700 dark:border-gray-700">
       {Array.from({ length: 5 }).map((_, index) => {
         const key = index
         return (
@@ -17,6 +14,6 @@ export default function ListSkeleton() {
         )
       })}
       <span className="sr-only">Loading...</span>
-    </div>
+    </output>
   )
 }
