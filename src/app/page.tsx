@@ -14,7 +14,7 @@ import { TABS } from "@/modules/utils/constants"
 import useLotteries from "@/modules/admin/lottery/hooks/useLotteries"
 
 export default function Home() {
-  const { lotteries, lotteryType, changeLotteryType } = useLotteries()
+  const { lotteries, lotteryType } = useLotteries()
   const isEmpty = lotteries?.length <= 0
 
   return (
@@ -30,7 +30,7 @@ export default function Home() {
           <Search />
 
           <div className="mt-44 hidden md:block md:px-10">
-            <Tabs tabsArray={TABS} selectedTab={lotteryType} setSelectedTab={changeLotteryType} />
+            <Tabs tabsArray={TABS} selectedTab={lotteryType} />
           </div>
           <div
             className={`${isEmpty ? "my-32 flex justify-center" : "my-10 grid grid-cols-1 gap-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3"}`}
