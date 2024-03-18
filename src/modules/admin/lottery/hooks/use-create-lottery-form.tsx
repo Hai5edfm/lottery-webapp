@@ -30,7 +30,6 @@ export default function useCreateLotteryForm() {
       max: 0,
       isPublicAccess: true,
       secretCode: "",
-      numberOfWinners: 1,
       prizesList: [],
     },
   })
@@ -50,11 +49,10 @@ export default function useCreateLotteryForm() {
         description: data.description,
         lottery_name: data.name,
         min_participants: data.min,
-        number_of_winners: data.numberOfWinners,
         public_access: data.isPublicAccess,
-        participants: [],
         prizes,
         secret_code: data.secretCode ?? "",
+        end_date: data.end_date,
       }).unwrap()
 
       console.log("create lottery", response)

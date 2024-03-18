@@ -1,32 +1,59 @@
+import { useEffect, useState } from "react"
+
 import { type Lottery } from "@/modules/admin/lottery/interfaces"
 import { calculateSecondsFromTodayToDate } from "@/modules/utils/calculate-time-remaining"
+import { LotteriesType } from "@/modules/utils/pagination"
 
 import { useGetLotteriesQuery } from "@/modules/admin/lottery/services/rtkq/lottery"
 
 export default function useLotteries() {
-  // SERVICES
-  const { data, isFetching, isError } = useGetLotteriesQuery()
+  const [lotteries, setLotteries] = useState<Lottery[]>([])
+  const [lotteryQueryParams, setLotteryQueryParams] = useState({
+    pagination: {
+      limit: 10,
+      offset: 0,
+      type: LotteriesType.ALL,
+    },
+  })
 
-  // ADAPT DATA for list loterries cards props, can refactor
-  const lotteries: Lottery[] =
-    data?.data.map((lottery) => {
-      // calculate time remaining
-      // TODO IMPLEMENT with server end_date value instead createdAt
-      const _timeRemaining = calculateSecondsFromTodayToDate(lottery.createdAt)
+  const { data, isFetching, isError } = useGetLotteriesQuery(lotteryQueryParams)
+
+  useEffect(() => {
+    if (!data) return
+
+    const _lotteries = data?.data.map((lottery) => {
+      const _timeRemaining = calculateSecondsFromTodayToDate(lottery.end_date)
 
       return {
         ...lottery,
-        time: Math.floor(Math.random() * (7000 - 300 + 1)) + 300,
+        time: _timeRemaining,
         participants: {
-          current: lottery.min_participants,
+          current: lottery.ammount_participants,
           max: lottery.max_participants,
         },
       }
-    }) ?? []
+    })
+
+    setLotteries(_lotteries || [])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, lotteryQueryParams]) // Update when either data or lotteryQueryParams change
+
+  const changeLotteryType = (type: LotteriesType) => {
+    setLotteryQueryParams((prevParams) => ({
+      ...prevParams,
+      pagination: {
+        ...prevParams.pagination,
+        type,
+      },
+    }))
+  }
 
   return {
     lotteries,
     isError,
     isFetching,
+    lotteryType: lotteryQueryParams.pagination.type,
+    changeLotteryType,
   }
 }

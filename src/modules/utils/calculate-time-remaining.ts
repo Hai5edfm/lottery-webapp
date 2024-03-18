@@ -8,7 +8,7 @@ export const calculateTimeRemaining = (inicio: Date, fin: Date): string => {
   const diferencia = fin.getTime() - inicio.getTime()
 
   if (diferencia <= 0) {
-    return "0"
+    return "0H 0M 0S"
   }
 
   const segundosEnMilisegundos = 1000
@@ -21,7 +21,7 @@ export const calculateTimeRemaining = (inicio: Date, fin: Date): string => {
 
   let tiempoRestante = ""
   if (horas > 0) {
-    tiempoRestante += `${horas}h `
+    tiempoRestante += `${horas}H `
   }
 
   if (minutos > 0 || horas > 0) {

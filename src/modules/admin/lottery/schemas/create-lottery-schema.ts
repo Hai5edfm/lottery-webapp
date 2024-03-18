@@ -32,13 +32,8 @@ export const createLotterySchema = z
       invalid_type_error: "The public access value must be a boolean.",
     }),
     secretCode: z.string({ required_error: "The secret code is required." }).optional(),
-    numberOfWinners: z.coerce
-      .number({
-        required_error: "The number of winners is required.",
-        invalid_type_error: "The value must be a valid number.",
-      })
-      .gte(1, "The minimum value is 1."),
     prizesList: z.array(prizeListItemSchema),
+    end_date: z.string({ required_error: "The end date is required." }),
   })
   .refine(
     (data) => {
@@ -62,18 +57,6 @@ export const createLotterySchema = z
     {
       message: "The max value should be equal or greater than min value.",
       path: ["max"],
-    }
-  )
-  .refine(
-    (data) => {
-      if (data.max === 0) return true
-      if (data.max) {
-        return data.numberOfWinners <= data.max
-      }
-    },
-    {
-      message: "The number of winners should be between min and max participants.",
-      path: ["numberOfWinners"],
     }
   )
 

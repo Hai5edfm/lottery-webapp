@@ -1,16 +1,17 @@
 import { Fragment } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 
-import LotteryDetail from "@/modules/admin/lottery/components/lottery-detail"
 import { useAppDispatch, useAppSelector } from "@/modules/redux/redux-hooks"
 import { closeModal } from "@/modules/ui/modal/redux/modal-slice"
 
-export const LotteryDetailModal = () => {
+import JoinLotteryForm from "../join-lottery-form"
+
+export const JoinLotteryModal = () => {
   const type = useAppSelector((state) => state.modal.type)
   const isOpen = useAppSelector((state) => state.modal.isOpen)
   const dispatch = useAppDispatch()
 
-  const isModalOpen = isOpen && type === "lottery-detail"
+  const isModalOpen = isOpen && type === "join-lottery"
 
   return (
     <Transition appear show={isModalOpen} as={Fragment}>
@@ -40,11 +41,11 @@ export const LotteryDetailModal = () => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="flex w-[min(640px,90%)] transform flex-col gap-10 rounded-2xl bg-[#E4E4E4] px-10  py-16 text-left shadow-xl transition-all md:px-20">
+              <Dialog.Panel className="flex w-[min(640px,90%)] transform flex-col gap-10 rounded-2xl bg-[#E4E4E4] px-4  py-10 text-left shadow-xl transition-all md:px-20">
                 <Dialog.Title as="h3" className="text-2xl font-semibold leading-9 text-black">
-                  Lottery Details
+                  Join Lottery
                 </Dialog.Title>
-                <LotteryDetail />
+                <JoinLotteryForm />
               </Dialog.Panel>
             </Transition.Child>
           </div>

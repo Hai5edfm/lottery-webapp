@@ -55,6 +55,19 @@ export default function CreateLotteryForm() {
           className="max-h-80 min-h-36 w-full resize-none appearance-none rounded-md border-2 border-[#1E1E1E] bg-transparent px-2 py-1 focus:outline-none"
         />
         <p className="text-[#EF5656]">{errors.description?.message}</p>
+
+        {/* End Date */}
+        <div className="flex flex-col gap-2">
+          <label htmlFor="end_date" className="font-semibold after:content-['*']">
+            End date
+          </label>
+          <input
+            type="datetime-local"
+            className="border-2 border-[#1E1E1E] bg-transparent px-2 py-1 focus:outline-none"
+            {...register("end_date")}
+          />
+          <p className="text-[#EF5656]">{errors.end_date?.message}</p>
+        </div>
       </div>
 
       {/* PARTICIPANTS */}
@@ -125,19 +138,6 @@ export default function CreateLotteryForm() {
       <div className="flex flex-col gap-5">
         {/* TITLE */}
         <h3 className="text-center font-semibold text-[#2792DF]">Prizes</h3>
-
-        {/* NUMBER OF WINNER */}
-        <div className="flex flex-col gap-2">
-          <label htmlFor="name" className="font-semibold after:content-['*']">
-            Number of winners
-          </label>
-          <Input
-            className="w-full border-2 border-[#1E1E1E] sm:w-1/2"
-            name="numberOfWinners"
-            register={register}
-          />
-          <p className="text-[#EF5656]">{errors.numberOfWinners?.message}</p>
-        </div>
 
         {/* PRIZES LIST */}
         <PrizesList register={register} errors={errors} control={control} setValue={setValue} />

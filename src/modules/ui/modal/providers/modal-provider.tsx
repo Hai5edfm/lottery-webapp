@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 
+import { JoinLotteryModal } from "@/modules/admin/lottery/components/modals/join-lottery-modal"
 import { LotteryDetailModal } from "@/modules/admin/lottery/components/modals/lottery-detail-modal"
 import { NewLotteryModal } from "@/modules/admin/lottery/components/modals/new-lottery-modal"
 
@@ -22,6 +23,7 @@ export const ModalProvider = () => {
       {/* AÑADIR NUEVOS MODALES AQUI */}
       <NewLotteryModal />
       <LotteryDetailModal />
+      <JoinLotteryModal />
     </>
   )
 }

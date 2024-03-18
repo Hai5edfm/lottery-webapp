@@ -9,7 +9,7 @@ import useLotteries from "@/modules/admin/lottery/hooks/useLotteries"
 export default function LotteryList() {
   const { lotteries, isError, isFetching } = useLotteries()
 
-  const isEmpty = lotteries.length <= 0
+  const isEmpty = lotteries?.length <= 0
 
   if (isFetching) return <ListSkeleton />
   // TODO handle error

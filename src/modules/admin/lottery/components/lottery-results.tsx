@@ -23,7 +23,7 @@ const LotteryResultsCard: FC<Props> = ({ lotteryCard }) => {
       <div>
         <div className="mt-5 grid grid-cols-10">
           <p>Lottery name:</p>
-          <p className="col-span-6 col-end-10 font-semibold">{lotteryCard.lottery_name}</p>
+          <p className="col-span-6 col-end-10 font-semibold">{lotteryCard?.lottery_name}</p>
         </div>
         <div className="mt-5 grid grid-cols-10">
           <p>Status:</p>
@@ -31,18 +31,18 @@ const LotteryResultsCard: FC<Props> = ({ lotteryCard }) => {
         </div>
         <div className="mt-5">
           <p>Description:</p>
-          <p className="font-semibold">{lotteryCard.description}</p>
+          <p className="font-semibold">{lotteryCard?.description}</p>
         </div>
       </div>
       <div>
         <p className="mt-10 text-center text-xl font-semibold">Participants</p>
         <div className="mt-5 grid w-1/4 grid-cols-2">
           <p>Min:</p>
-          <p className="font-semibold">1</p>
+          <p className="font-semibold">{lotteryCard?.min_participants}</p>
         </div>
         <div className="mt-5 grid w-1/4 grid-cols-2">
           <p>Max:</p>
-          <p className="font-semibold"> 10</p>
+          <p className="font-semibold">{lotteryCard?.max_participants}</p>
         </div>
         <div className="mt-5 grid w-1/2 grid-cols-2">
           <p>Public access</p>
@@ -51,19 +51,19 @@ const LotteryResultsCard: FC<Props> = ({ lotteryCard }) => {
           </span>
         </div>
         {!lotteryCard.public_access ? (
-          <div className="mt-5 grid w-1/2 grid-cols-2 items-center">
+          <div className="mt-5 flex items-center gap-10">
             <p>Secret code:</p>
-            <p className="font-semibold">{lotteryCard?.secret_code}</p>
+            <p className="text-wrap break-all font-semibold">{lotteryCard?.secret_code}</p>
           </div>
         ) : null}
 
-        <div>
+        <div className="mt-10">
           <p className="text-center text-xl font-semibold">Prizes</p>
           <div className="my-5 grid w-3/4 grid-cols-2">
             <p>Number of winners:</p>
-            <p className="font-semibold"> 4</p>
+            <p className="font-semibold"> {lotteryCard?.number_of_winners}</p>
           </div>
-          <PrizesListResults />
+          <PrizesListResults prizes={lotteryCard?.prizes ?? []} />
         </div>
       </div>
     </div>

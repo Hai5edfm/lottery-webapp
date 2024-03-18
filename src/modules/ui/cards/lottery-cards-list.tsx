@@ -9,11 +9,5 @@ interface Props {
 }
 
 export const LotteryCardsList: React.FC<Props> = ({ lotteries }) => {
-  return (
-    <>
-      {lotteries.map((lottery) => (
-        <LotteryCard key={lottery.id} lottery={lottery} />
-      ))}
-    </>
-  )
+  return <>{lotteries?.map((lottery) => <LotteryCard key={lottery.id} lottery={lottery} />)}</>
 }

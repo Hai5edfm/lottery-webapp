@@ -1,5 +1,4 @@
 "use client"
-import { useState } from "react"
 import Image from "next/image"
 
 import fly_icon from "@/assets/images/fly.png"
@@ -15,9 +14,8 @@ import { TABS } from "@/modules/utils/constants"
 import useLotteries from "@/modules/admin/lottery/hooks/useLotteries"
 
 export default function Home() {
-  const [selectedTab, setSelectedTab] = useState("All")
-  const { lotteries } = useLotteries()
-  const isEmpty = lotteries.length <= 0
+  const { lotteries, lotteryType, changeLotteryType } = useLotteries()
+  const isEmpty = lotteries?.length <= 0
 
   return (
     <main className="min-h-screen bg-[#272961]">
@@ -32,12 +30,12 @@ export default function Home() {
           <Search />
 
           <div className="mt-44 hidden md:block md:px-10">
-            <Tabs tabsArray={TABS} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+            <Tabs tabsArray={TABS} selectedTab={lotteryType} setSelectedTab={changeLotteryType} />
           </div>
           <div
             className={`${isEmpty ? "my-32 flex justify-center" : "my-10 grid grid-cols-1 gap-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3"}`}
           >
-            <LotteryList />
+            <LotteryList key={lotteryType} />
           </div>
         </div>
       </section>

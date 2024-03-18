@@ -1,6 +1,9 @@
 import { type FC, useEffect, useState } from "react"
+import Cookies from "js-cookie"
 import { FaCopy, FaRegCopy } from "react-icons/fa"
 import { PiArrowsClockwiseFill } from "react-icons/pi"
+
+import { type Prize } from "../interfaces"
 
 const prizesItemRankColor: Record<number, string> = {
   0: "bg-[#FCBE1E]",
@@ -9,28 +12,18 @@ const prizesItemRankColor: Record<number, string> = {
   // default #E4E4E4
 }
 
-const winners = [
-  {
-    name: "First winner",
-    position: 1,
-  },
-  {
-    name: "Second winner",
-    position: 2,
-  },
-  {
-    name: "Third winner",
-    position: 3,
-  },
-]
+interface Props {
+  prizes: Prize[]
+}
 
-export const WinnersList: FC = () => {
+export const WinnersList: FC<Props> = ({ prizes }) => {
   const [winnerHovered, setWinnerHovered] = useState<number | null>(null)
   const [copied, setCopied] = useState<number | null>(null)
   const copyToClipboard = (text: string, index: number) => {
     navigator.clipboard.writeText(text)
     setCopied(index)
   }
+  const isAdmin = !!Cookies.get("auth")
 
   useEffect(() => {
     if (copied) {
@@ -43,25 +36,25 @@ export const WinnersList: FC = () => {
 
   return (
     <div className="flex flex-col gap-4 font-semibold">
-      {winners.map((winner, index) => (
+      {prizes?.map((prize, index) => (
         <div
-          key={winner.position}
+          key={prize.position}
           className="flex items-center gap-4"
-          onMouseEnter={() => setWinnerHovered(winner.position)}
+          onMouseEnter={() => setWinnerHovered(prize.position)}
         >
           <div
             className={`rounded-lg border-2 border-[#1E1E1E] px-3 py-1 text-[#1E1E1E] ${prizesItemRankColor[index]}`}
           >
-            {winner.position}
+            {prize.position}
           </div>
-          <p className="text-2xl">{winner.name}</p>
-          {winnerHovered === winner.position && (
+          <p className="text-2xl">{prize?.winner ?? "---"}</p>
+          {winnerHovered === prize.position && isAdmin && (
             <div className="flex items-center">
               <button
                 className="mr-2"
-                onClick={() => copyToClipboard(winner.name, winner.position)}
+                onClick={() => copyToClipboard(prize?.winner ?? "", prize.position)}
               >
-                {copied === winner.position ? <FaCopy size={24} /> : <FaRegCopy size={24} />}
+                {copied === prize.position ? <FaCopy size={24} /> : <FaRegCopy size={24} />}
               </button>
               <button>
                 <PiArrowsClockwiseFill size={24} />
