@@ -41,7 +41,7 @@ const LotteriesPage: NextPage = () => {
           </div>
 
           <div className="mt-24 hidden md:block md:px-2">
-            <Tabs tabsArray={TABS} selectedTab={lotteryType} />
+            <Tabs tabsArray={TABS} selectedTab={lotteryType} tab="admin" />
           </div>
           <div className="my-10 grid grid-cols-1 gap-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
             <LotteryCardsList lotteries={lotteries} />

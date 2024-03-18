@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation"
 interface Props {
   tabsArray: TabProps[]
   selectedTab: string
+  tab: "admin" | "public"
 }
 
 interface TabProps {
@@ -13,34 +14,28 @@ interface TabProps {
   selected: boolean
 }
 
-export const Tabs: FC<Props> = ({ tabsArray, selectedTab }) => {
+export const Tabs: FC<Props> = ({ tabsArray, selectedTab, tab }) => {
   const queryParams = useSearchParams()
-  const tabParam = queryParams.get("tab") ?? "public"
+  const tabParam = tab ?? queryParams.get("tab") ?? "public"
 
   return (
     <div className="w-full">
       <ul className="flex w-full justify-between">
-        {tabsArray.map((tab, index) => (
+        {tabsArray.map((_tab, index) => (
           <li key={tabsArray[index].name}>
-            {/* <button
-              onClick={() => setSelectedTab(tab.value ?? tab.name)}
-              className={`min-w-[152px] border-b-4 pb-1 text-center ${
-                (tab.value ?? tab.name) === selectedTab ? "border-[#29A5FF]" : "border-transparent"
-              }`}
-            >
-              {tab.name}
-            </button> */}
             <Link
               href={
                 tabParam === "admin"
-                  ? `/admin/lotteries?type=${tab.value ?? tab.name}&tab=${tabParam}`
-                  : `/?type=${tab.value ?? tab.name}&tab=${tabParam}`
+                  ? `/admin/lotteries?type=${_tab.value ?? _tab.name}&tab=${tabParam}`
+                  : `/?type=${_tab.value ?? _tab.name}&tab=${tabParam}`
               }
               className={`min-w-[152px] border-b-4 pb-1 text-center ${
-                (tab.value ?? tab.name) === selectedTab ? "border-[#29A5FF]" : "border-transparent"
+                (_tab.value ?? _tab.name) === selectedTab
+                  ? "border-[#29A5FF]"
+                  : "border-transparent"
               }`}
             >
-              {tab.name}
+              {_tab.name}
             </Link>
           </li>
         ))}
