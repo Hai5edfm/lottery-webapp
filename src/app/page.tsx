@@ -30,7 +30,7 @@ export default function Home() {
           <Search />
 
           <div className="mt-44 hidden md:block md:px-10">
-            <Tabs tabsArray={TABS} selectedTab={lotteryType} />
+            <Tabs tabsArray={TABS} selectedTab={lotteryType} tab="public" />
           </div>
           <div
             className={`${isEmpty ? "my-32 flex justify-center" : "my-10 grid grid-cols-1 gap-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3"}`}
