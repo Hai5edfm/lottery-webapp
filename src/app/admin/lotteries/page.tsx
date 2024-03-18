@@ -1,5 +1,4 @@
 "use client"
-import { useState } from "react"
 import { type NextPage } from "next"
 import Image from "next/image"
 import { IoAddOutline } from "react-icons/io5"
@@ -12,15 +11,14 @@ import { openModal } from "@/modules/ui/modal/redux/modal-slice"
 import { NavBar } from "@/modules/ui/nav-bar"
 import { Search } from "@/modules/ui/search-bar/search"
 import { Tabs } from "@/modules/ui/tabs"
-import { ADMIN_TABS } from "@/modules/utils/constants"
+import { TABS } from "@/modules/utils/constants"
 
 import useLotteries from "@/modules/admin/lottery/hooks/useLotteries"
 
 const LotteriesPage: NextPage = () => {
-  const [selectedTab, setSelectedTab] = useState("All")
   const dispatch = useAppDispatch()
 
-  const { lotteries } = useLotteries()
+  const { lotteries, lotteryType } = useLotteries()
 
   return (
     <main className="min-h-screen bg-[#272961]">
@@ -43,11 +41,7 @@ const LotteriesPage: NextPage = () => {
           </div>
 
           <div className="mt-24 hidden md:block md:px-2">
-            <Tabs
-              tabsArray={ADMIN_TABS}
-              selectedTab={selectedTab}
-              setSelectedTab={setSelectedTab}
-            />
+            <Tabs tabsArray={TABS} selectedTab={lotteryType} />
           </div>
           <div className="my-10 grid grid-cols-1 gap-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
             <LotteryCardsList lotteries={lotteries} />
